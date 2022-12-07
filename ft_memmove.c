@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguneyse <aguneyse@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 14:42:27 by aguneyse          #+#    #+#             */
-/*   Updated: 2022/12/06 15:47:32 by aguneyse         ###   ########.fr       */
+/*   Created: 2022/12/06 18:43:12 by aguneyse          #+#    #+#             */
+/*   Updated: 2022/12/06 19:02:40 by aguneyse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	char	*p;
+	char		*p_dst;
+	const char	*p_src;
+	size_t		len;
 
-	p = s;
-	while (n > 0)
+	p_dst = dst;
+	p_src = src;
+	if (p_dst > p_src)
 	{
-		*p++ = 0;
-		n--;
+		while (n > 0)
+		{
+			n--;
+			*(p_dst + n) = *(p_src + n);
+		}
 	}
+	else
+	{
+		len = 0;
+		while (len < n)
+		{
+			*(p_dst + len) = *(p_src + n);
+			len++;
+		}
+	}
+	return (dst);
 }
