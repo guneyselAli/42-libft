@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguneyse <aguneyse@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 15:01:20 by aguneyse          #+#    #+#             */
-/*   Updated: 2022/12/07 15:32:08 by aguneyse         ###   ########.fr       */
+/*   Created: 2022/12/08 16:36:09 by aguneyse          #+#    #+#             */
+/*   Updated: 2022/12/08 16:40:54 by aguneyse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_strdup(const char *s1)
 {
-	size_t	dstlen;
-	size_t	srclen;
-	size_t	catlen;
-	size_t	x;
+	size_t	len;
+	char	*a;
 
-	dstlen = ft_strlen(dst);
-	srclen = ft_strlen(src);
-	catlen = dstsize - dstlen;
-	if (dstsize <= dstlen)
-		return (dstsize + srclen);
-	if (dstsize >= 1)
-	{
-		x = dstlen;
-		while (catlen > 1 && *src)
-		{
-			*(dst + x++) = *src++;
-			catlen--;
-		}
-		*(dst + x) = '\0';
-	}
-	return (dstlen + srclen);
+	len = ft_strlen(s1);
+	a = malloc(sizeof(char) * (len + 1));
+	if (!a)
+		return (0);
+	ft_memcpy(a, s1, len + 1);
+	return (a);
 }

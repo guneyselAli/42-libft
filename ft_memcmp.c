@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguneyse <aguneyse@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 15:01:20 by aguneyse          #+#    #+#             */
-/*   Updated: 2022/12/07 15:32:08 by aguneyse         ###   ########.fr       */
+/*   Created: 2022/12/08 13:17:09 by aguneyse          #+#    #+#             */
+/*   Updated: 2022/12/08 13:32:34 by aguneyse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	dstlen;
-	size_t	srclen;
-	size_t	catlen;
-	size_t	x;
+	char	*p_s1;
+	char	*p_s2;
 
-	dstlen = ft_strlen(dst);
-	srclen = ft_strlen(src);
-	catlen = dstsize - dstlen;
-	if (dstsize <= dstlen)
-		return (dstsize + srclen);
-	if (dstsize >= 1)
+	p_s1 = (char *)s1;
+	p_s2 = (char *)s2;
+	while ((*p_s1 || *p_s2) && n > 0)
 	{
-		x = dstlen;
-		while (catlen > 1 && *src)
-		{
-			*(dst + x++) = *src++;
-			catlen--;
-		}
-		*(dst + x) = '\0';
+		if (*p_s1 != *p_s2)
+			return (*p_s1 - *p_s2);
+		p_s1++;
+		p_s2++;
+		n--;
 	}
-	return (dstlen + srclen);
+	return (0);
 }

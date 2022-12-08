@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguneyse <aguneyse@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 15:01:20 by aguneyse          #+#    #+#             */
-/*   Updated: 2022/12/07 15:32:08 by aguneyse         ###   ########.fr       */
+/*   Created: 2022/12/08 13:52:26 by aguneyse          #+#    #+#             */
+/*   Updated: 2022/12/08 14:22:42 by aguneyse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	dstlen;
-	size_t	srclen;
-	size_t	catlen;
 	size_t	x;
+	size_t	y;
 
-	dstlen = ft_strlen(dst);
-	srclen = ft_strlen(src);
-	catlen = dstsize - dstlen;
-	if (dstsize <= dstlen)
-		return (dstsize + srclen);
-	if (dstsize >= 1)
+	x = 0;
+	y = 0;
+	if (!*needle)
+		return ((char *)haystack);
+	while (*haystack && x < len)
 	{
-		x = dstlen;
-		while (catlen > 1 && *src)
+		while (*(haystack + x + y) == *(needle + y) && (x + y) < len)
 		{
-			*(dst + x++) = *src++;
-			catlen--;
+			y++;
+			if (!*(needle + y))
+				return ((char *)haystack + x);
 		}
-		*(dst + x) = '\0';
+		x++;
+		y = 0;
 	}
-	return (dstlen + srclen);
+	return (0);
 }
