@@ -170,10 +170,62 @@
 }*/
 
 //Strjoin
-int	main(void)
+/*int	main(void)
 {
 	printf("%s\n", ft_strjoin("merhaba"," ben ali."));
 	printf("%s\n", ft_strjoin("merhaba",""));
 	printf("%s\n", ft_strjoin(""," ben ali."));
 	printf("%s\n", ft_strjoin("",""));
+}*/
+
+//Strtrim
+/*int	main(void)
+{
+	char set[] = {32, 9, 10, 11, 12, 13};
+	printf("Test 1\n");
+	printf("Result:'%s'\n", ft_strtrim(" 	mrb ", set));
+	printf("Adress:'%p'\n", ft_strtrim(" 	mrb ", set));
+	printf("\n");
+	printf("Test 2\n");
+	printf("Result:'%s'\n", ft_strtrim(" hello world 	  ", set));
+	printf("Adress:'%p'\n", ft_strtrim(" hello world 	  ", set));
+	printf("\n");
+	printf("Test 3\n");
+	printf("Result:'%s'\n", ft_strtrim("", set));
+	printf("Adress:'%p'\n", ft_strtrim("", set));
+	printf("\n");
+	printf("Test 4\n");
+	printf("Result:'%s'\n", ft_strtrim(0, set));
+	printf("Adress:'%p'\n", ft_strtrim(0, set));
+	printf("\n");
+	printf("Test 4\n");
+	printf("Result:'%s'\n", ft_strtrim(" hello",0));
+	printf("Adress:'%p'\n", ft_strtrim(" hello",0));
+	printf("\n");
+	printf("Test 5\n");
+	printf("Result:'%s'\n", ft_strtrim(" hello world 	  ", ""));
+	printf("Adress:'%p'\n", ft_strtrim(" hello world 	  ", ""));
+}*/
+
+//Split
+
+char	*function()
+{
+	char *a = malloc(16);
+	a[0] = 'h';
+	a[1] = 'e';
+	a[2] = 'a';
+	//free(a);
+	return (a);
+
+}
+int	main(void)
+{
+	char *b = function();
+	char *c = function();
+	char *d[2] = {b, c};
+	printf("%p\n", b);
+	printf("%p\n",c);
+	printf("%s\n", c);
+	printf("%s,%s ", d[0], d[1]);
 }
