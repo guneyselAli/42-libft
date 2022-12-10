@@ -208,24 +208,69 @@
 }*/
 
 //Split
-
-char	*function()
+/*void print_array(char **array)
 {
-	char *a = malloc(16);
-	a[0] = 'h';
-	a[1] = 'e';
-	a[2] = 'a';
-	//free(a);
-	return (a);
+	int i = 0;
+	if (!(array + i))
+		printf("null");
+	else
+		while (*(array+i))
+		{
+			printf("{%s},", *(array+i));
+			i++;
+		}
+	printf("\n");
+}
+int	main(void)
+{
+	print_array(ft_split("merhaba benim adım ali. ", ' '));
+	print_array(ft_split("   merhaba benim adım ali. ", ' '));
+	print_array(ft_split("merhaba benim adım ali. ", 'm'));
+	print_array(ft_split("merhaba benim adım ali. ", 0));
+	print_array(ft_split("", ' '));
+	print_array(ft_split("1m 2m 3m 4m 5m ", 'm'));
+}*/
+ 
+ //itoa
+ /*int	main(void)
+ {
+	printf("%s\n",ft_itoa(203948));
+	printf("%s\n",ft_itoa(0));
+	printf("%s\n",ft_itoa(1));
+	printf("%s\n",ft_itoa(-12345));
+	printf("%s\n",ft_itoa(214736800));
+	printf("%s\n",ft_itoa(-214736800));
+	printf("%s\n",ft_itoa(-2147483648));
+	printf("%s\n",ft_itoa(2147483647));
+ }*/
+
+//strmapi
+/*char	some_func(unsigned int n, char c)
+{
+	if (n % 2 == 0)
+		return(ft_toupper(c));
+	else
+		return(ft_tolower(c));
 
 }
 int	main(void)
 {
-	char *b = function();
-	char *c = function();
-	char *d[2] = {b, c};
-	printf("%p\n", b);
-	printf("%p\n",c);
-	printf("%s\n", c);
-	printf("%s,%s ", d[0], d[1]);
+	printf("%s\n",ft_strmapi("abcdEFgH01234jkl24mN", &some_func));
+}*/
+
+//striteri
+/*void	some_func(unsigned int n, char *c)
+{
+	if (n % 2 == 0)
+		*c = ft_toupper(*c);
+	else
+		*c = ft_tolower(*c);
 }
+
+int	main(void)
+{
+	char mystring[] = "aBCdefgHJk02912Lmnp";
+	ft_striteri(mystring, &some_func);
+	printf("%s\n", mystring);
+}*/
+
