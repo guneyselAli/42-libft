@@ -1,6 +1,7 @@
 #include "libft.h"
 #include <stdio.h>
 #include <string.h>
+#include <fcntl.h>
 
 //Strlcat
 /*int main(void)
@@ -274,3 +275,47 @@ int	main(void)
 	printf("%s\n", mystring);
 }*/
 
+//puthcar_fd
+/*
+int	main(void)
+{
+	int fd = open("test.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	//int fd = open("test.txt", O_WRONLY | O_CREAT, 0644);
+	for (int i = 0; i < 26; i++)
+	{
+		ft_putchar_fd(i + 97, fd);
+	}	
+	close(fd);
+}*/
+
+//putstr_fd
+/*int	main(void)
+{
+	int fd = open("test.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	//int fd = open("test.txt", O_WRONLY | O_CREAT, 0644);
+	ft_putstr_fd("my name is ali", fd);
+	close(fd);
+}*/
+
+//putenld_fd
+/*int	main(void)
+{
+	int fd = open("test.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	//int fd = open("test.txt", O_WRONLY | O_CREAT, 0644);
+	ft_putendl_fd(0, fd);
+	close(fd);
+}*/
+
+//putnbr_fd
+int	main(void)
+{
+	int fd = open("test.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	ft_putnbr_fd(-2147483648, fd);
+	ft_putchar_fd('\n',fd);
+	ft_putnbr_fd(2147483647, fd);
+	ft_putchar_fd('\n',fd);
+	ft_putnbr_fd(0, fd);
+	ft_putchar_fd('\n',fd);
+	ft_putnbr_fd(123456, fd);
+	close(fd);
+}
