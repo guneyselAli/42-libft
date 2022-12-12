@@ -162,12 +162,18 @@
 /*int	main(void)
 {
 	char a[] = "01234567Mystring";
-	printf("%s", ft_substr(a,8,3));
+	printf("%p", ft_substr(a,8,3));
 
 	printf("\n");
-	char c[] = "abcdefgh";
 	char b[] = "zx";
-	printf("%s", ft_substr(b,2,15));
+	printf("%p\n", ft_substr(b,2,15));
+
+	char *str = "0123456789";
+	char *s = ft_substr(str, 10, 10);
+	printf("%p\n", s);
+
+	s = ft_substr("tripouille", 1, 1);
+	printf("%p\n", s);
 }*/
 
 //Strjoin
@@ -206,10 +212,14 @@
 	printf("Test 5\n");
 	printf("Result:'%s'\n", ft_strtrim(" hello world 	  ", ""));
 	printf("Adress:'%p'\n", ft_strtrim(" hello world 	  ", ""));
+	printf("Test 6\n");
+	printf("%s\n" , ft_strtrim("abcdba", "acb"));
+	printf("%d\n", ft_strncmp(ft_strtrim("abcdba", "acb"),"d", 2));
 }*/
 
 //Split
-/*void print_array(char **array)
+/*
+void print_array(char **array)
 {
 	int i = 0;
 	if (!(array + i))
@@ -222,7 +232,7 @@
 		}
 	printf("\n");
 }
-int	main(void)
+int main(void)
 {
 	print_array(ft_split("merhaba benim adım ali. ", ' '));
 	print_array(ft_split("   merhaba benim adım ali. ", ' '));
@@ -230,6 +240,9 @@ int	main(void)
 	print_array(ft_split("merhaba benim adım ali. ", 0));
 	print_array(ft_split("", ' '));
 	print_array(ft_split("1m 2m 3m 4m 5m ", 'm'));
+	print_array(ft_split("  tripouille  42  ", ' '));
+		
+	print_array(ft_split("  taaaaripouille  ", 0));
 }*/
  
  //itoa
@@ -307,7 +320,7 @@ int	main(void)
 }*/
 
 //putnbr_fd
-int	main(void)
+/*int	main(void)
 {
 	int fd = open("test.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
 	ft_putnbr_fd(-2147483648, fd);
@@ -318,4 +331,4 @@ int	main(void)
 	ft_putchar_fd('\n',fd);
 	ft_putnbr_fd(123456, fd);
 	close(fd);
-}
+}*/
