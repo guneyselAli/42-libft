@@ -6,18 +6,25 @@ SRCS	=	ft_atoi.c	ft_isprint.c	ft_putchar_fd.c	ft_striteri.c	ft_strnstr.c \
 			ft_isascii.c	ft_memmove.c	ft_strchr.c	ft_strmapi.c	ft_toupper.c \
 			ft_isdigit.c	ft_memset.c	ft_strdup.c	ft_strncmp.c
 OBJS    =   $(SRCS:.c=.o)
+B_SRCS	=	ft_lstnew.c	ft_lstadd_front.c	ft_lstsize.c ft_lstlast.c	ft_lstadd_back.c
+B_OBJS	=	$(B_SRCS:.c=.o)
 NAME    =   libft.a
 FLAGS   =   -Werror -Wall -Wextra
+all: $(NAME)
 $(NAME):
 	gcc -c $(FLAGS) $(SRCS)
 	ar rcs $(NAME) $(OBJS)
-all: $(NAME)
 clean:
 	rm -f $(OBJS)
 fclean: clean
-	rm -f all
+	rm -f $(NAME)
 re: fclean
-.PHONY: all fclean re clean
+bonus:
+		gcc -c $(FLAGS) $(B_SRCS) $(SRCS)
+		ar rcs $(NAME) $(B_OBJS) $(OBJS)
+bclean:
+	rm -f $(B_OBJS)
+.PHONY: all fclean re clean bonus
 
 
 

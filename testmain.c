@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <fcntl.h>
+#include <stdint.h>
 
 //Strlcat
 /*int main(void)
@@ -162,18 +163,18 @@
 /*int	main(void)
 {
 	char a[] = "01234567Mystring";
-	printf("%p", ft_substr(a,8,3));
+	printf("%s", ft_substr(a,8,3));
 
 	printf("\n");
 	char b[] = "zx";
-	printf("%p\n", ft_substr(b,2,15));
+	printf("%s\n", ft_substr(b,2,15));
 
 	char *str = "0123456789";
-	char *s = ft_substr(str, 10, 10);
-	printf("%p\n", s);
+	char *s = ft_substr(str, 9, 10);
+	printf("%s\n", s);
 
 	s = ft_substr("tripouille", 1, 1);
-	printf("%p\n", s);
+	printf("%s\n", s);
 }*/
 
 //Strjoin
@@ -289,8 +290,8 @@ int	main(void)
 }*/
 
 //puthcar_fd
-/*
-int	main(void)
+
+/*int	main(void)
 {
 	int fd = open("test.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
 	//int fd = open("test.txt", O_WRONLY | O_CREAT, 0644);
@@ -331,4 +332,75 @@ int	main(void)
 	ft_putchar_fd('\n',fd);
 	ft_putnbr_fd(123456, fd);
 	close(fd);
+}*/
+
+
+//lstnew
+/*int main(void)
+{
+	int a = 5;
+	t_list *b = ft_lstnew(&a);
+	printf("%d\n", *(int *)(b->content));
+	printf("%p\n", b->next);
+}*/
+
+//lstadd_front
+int	main(void)
+/*{
+	t_list new;
+	t_list *lst;
+	int a = 5;
+
+	lst = malloc(sizeof(t_list));
+	lst->content = &a;
+	ft_lstadd_front(&lst, &new);
+	printf("%d", *(int *)(new.next->content));
+}*/
+
+//lstsize
+/*int	main(void)
+{
+	t_list new;
+	t_list *ptr;
+
+	ptr = &new;
+	for (int i = 1; i < 5; i++)
+	{
+		ptr->next = malloc(sizeof(t_list));
+		ptr = ptr->next;
+	}
+	ptr->next = 0;
+
+	printf("%d", ft_lstsize(&new));
+}*/
+
+//lstlast
+/*int	main(void)
+{
+	t_list new;
+	int	a = 1;
+	int	b = 2;
+	char c[] = "last";
+
+	new.content = &a;
+	new.next = malloc(sizeof(t_list));
+	new.next->content = &b;
+	new.next->next = malloc(sizeof(t_list));
+	new.next->next->content = c;
+	new.next->next->next = 0;
+	printf("%s", (char *)ft_lstlast(&new)->content);
+}*/
+
+//lstadd_back  !!!!!add back ve last çalışmıyorr!!
+/*int	main(void)
+{
+	t_list new;
+	t_list *lst;
+	int a = 5;
+
+	lst = malloc(sizeof(t_list));
+	new.content = &a;
+	ft_lstadd_back(&lst, &new);
+	ft_lstadd_back(&lst, 0);
+	printf("%d", *(int *)(lst->next->content));
 }*/
