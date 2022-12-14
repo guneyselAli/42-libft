@@ -345,16 +345,19 @@ int	main(void)
 }*/
 
 //lstadd_front
-int	main(void)
-/*{
+/*int	main(void)
+{
 	t_list new;
 	t_list *lst;
 	int a = 5;
 
 	lst = malloc(sizeof(t_list));
-	lst->content = &a;
+	(*lst).content = &a;
+	//lst->content = &a; //both line does same thing
 	ft_lstadd_front(&lst, &new);
 	printf("%d", *(int *)(new.next->content));
+
+	ft_lst
 }*/
 
 //lstsize
@@ -391,16 +394,80 @@ int	main(void)
 	printf("%s", (char *)ft_lstlast(&new)->content);
 }*/
 
-//lstadd_back  !!!!!add back ve last çalışmıyorr!!
+//lstadd_back  
 /*int	main(void)
 {
-	t_list new;
-	t_list *lst;
-	int a = 5;
+	t_list *liste;
+	liste = ft_lstnew("ilk");
+	liste->next = ft_lstnew("ikinci");
+	printf("%s", liste->content);
+	printf("%s", liste->next->content);
+	ft_lstadd_back(&liste, ft_lstnew("sonuncu"));
+	printf("\n%s", liste->next->next->content);	
+	printf("\n%p", liste->next->next->next);	
+	ft_lstadd_back(&liste, ft_lstnew("final"));
+	printf("\n%s", liste->next->next->next->content);	
+	printf("\n%p", liste->next->next->next->next);	
 
-	lst = malloc(sizeof(t_list));
-	new.content = &a;
-	ft_lstadd_back(&lst, &new);
-	ft_lstadd_back(&lst, 0);
-	printf("%d", *(int *)(lst->next->content));
+
 }*/
+
+//lstdelone
+/*void delfunc(void *ptr)
+{	
+	free(ptr);
+}
+
+int main(void)
+{
+	int a = 5;
+	t_list *mylist = ft_lstnew(&a);
+
+	printf("%d\n", *(int *)mylist->content);
+
+	ft_lstdelone(mylist, &delfunc);
+	printf("%p\n", mylist->content);
+	printf("%p\n", mylist);
+}*/
+
+//lstclear
+/*int	main(void)
+{
+	t_list	*mylist = ft_lstnew(malloc(1));
+
+	for (int i = 0; i < 5; i++)
+		ft_lstadd_back(&mylist, ft_lstnew(malloc(1)));
+
+	ft_lstclear(&mylist, free);
+	if (mylist == 0)
+		printf("Mylist freed");
+}*/
+
+//lstiter
+void some_function(void *a)
+{
+	static int b = 5;
+	b += 1;
+	*(int *)a = b;
+}
+
+int	main(void)
+{
+	t_list *mylist = ft_lstnew(malloc(sizeof(t_list)));
+	t_list *ptr;
+
+	ptr = mylist;
+	for (int i = 0 ; i < 5; i++)
+	{
+		ptr->next = ft_lstnew(malloc(sizeof(t_list)));
+		ptr = ptr->next;
+	}
+	ft_lstiter(mylist, &some_function);
+	while (mylist)
+	{
+		printf("%d\n", *(int *)mylist->content);
+		mylist = mylist->next;
+	}
+
+}
+
