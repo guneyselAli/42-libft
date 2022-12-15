@@ -12,32 +12,16 @@ B_OBJS	=	$(B_SRCS:.c=.o)
 NAME    =   libft.a
 FLAGS   =   -Werror -Wall -Wextra
 all: $(NAME)
-$(NAME):
+$(NAME): $(SRCS)
 	gcc -c $(FLAGS) $(SRCS)
 	ar rcs $(NAME) $(OBJS)
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(B_OBJS)
 fclean: clean
 	rm -f $(NAME)
 re: fclean
-bonus:
+bonus: $(B_OBJS)
+$(B_OBJS) : $(B_SRCS) $(SRCS)
 		gcc -c $(FLAGS) $(B_SRCS) $(SRCS)
 		ar rcs $(NAME) $(B_OBJS) $(OBJS)
-bclean:
-	rm -f $(B_OBJS)
 .PHONY: all fclean re clean bonus
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

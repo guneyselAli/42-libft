@@ -38,11 +38,13 @@ char	*ft_itoa(int n)
 {
 	char			*a;
 	size_t			len;
-	unsigned int	nbr;
+	long			nbr;
 
 	nbr = n;
 	len = digit_counter(nbr);
 	a = malloc(sizeof(char) * len + 1);
+	if (!a)
+		return (0);
 	a[len] = '\0';
 	if (nbr == 0)
 		a[0] = '0';

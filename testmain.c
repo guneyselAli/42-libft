@@ -444,7 +444,7 @@ int main(void)
 }*/
 
 //lstiter
-void some_function(void *a)
+/*void some_function(void *a)
 {
 	static int b = 5;
 	b += 1;
@@ -469,5 +469,5 @@ int	main(void)
 		mylist = mylist->next;
 	}
 
-}
+}*/
 
