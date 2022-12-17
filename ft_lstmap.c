@@ -12,6 +12,7 @@
 
 #include "libft.h"
 #include <stdio.h>
+
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *))
 {	
 	t_list	*first_node;
@@ -19,7 +20,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *))
 
 	if (!lst || !f || !del)
 		return (0);
-
 	first_node = 0;
 	while (lst)
 	{

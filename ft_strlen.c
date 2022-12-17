@@ -6,18 +6,18 @@
 /*   By: aguneyse <aguneyse@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:50:50 by aguneyse          #+#    #+#             */
-/*   Updated: 2022/12/06 12:14:04 by aguneyse         ###   ########.fr       */
+/*   Updated: 2022/12/16 14:35:26 by aguneyse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *c)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
 	i = 0;
-	while (c[i])
+	while (s[i])
 		i++;
 	return (i);
 }

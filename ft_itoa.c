@@ -12,13 +12,11 @@
 
 #include "libft.h"
 
-static int	digit_counter(int n)
+static int	digit_counter(long n)
 {
 	int	digits;
 
 	digits = 0;
-	if (n == -2147483648)
-		return (11);
 	if (n < 0)
 	{
 		digits++;

@@ -16,7 +16,6 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 {
 	char		*p_dst;
 	const char	*p_src;
-	size_t		len;
 
 	p_dst = dst;
 	p_src = src;
@@ -31,13 +30,6 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 		}
 	}
 	else
-	{
-		len = 0;
-		while (len < n)
-		{
-			*(p_dst + len) = *(p_src + len);
-			len++;
-		}
-	}
+		ft_memcpy(dst, src, n);
 	return (dst);
 }
